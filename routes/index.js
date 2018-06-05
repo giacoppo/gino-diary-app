@@ -36,7 +36,7 @@ router.post('/register', function(req, res) {
     if(req.body.userCode === 'plopperdeplop68') {
         newUser.isUser = true;
     } else {
-      req.flash('error','You need to set your User Code');
+      req.flash('error','U dient uw User Code in te vullen');
       return res.redirect('back');
     }
     User.register(newUser, req.body.password, function(err, user) {
@@ -46,7 +46,7 @@ router.post('/register', function(req, res) {
             return res.redirect('register');
         }
         passport.authenticate('local')(req, res, function() {
-            req.flash('success', 'Welcome to YelpCamp ' + user.username);
+            req.flash('success', 'Welkom bij Gino\'s dagboek ' + user.username);
             res.redirect('/campgrounds');
         });
     });
@@ -63,14 +63,14 @@ router.post('/login', passport.authenticate('local',
         successRedirect: '/campgrounds',
         failureRedirect: '/login',
         failureFlash: true,
-        successFlash: 'Logged you in Succesfully!'
+        successFlash: 'U bent succesvol ingelogd!'
     }), function(req, res) {
 });
 
 // Logout route
 router.get('/logout', function(req, res) {
     req.logout();
-    req.flash('success', 'Logged you out!');
+    req.flash('success', 'U bent uitgelogd!');
     res.redirect('/campgrounds');
 });
 
@@ -90,7 +90,7 @@ router.post('/forgot', function(req, res, next) {
       function(token, done) {
         User.findOne({ email: req.body.email }, function(err, user) {
           if (!user) {
-            req.flash('error', 'No account with that email address exists.');
+            req.flash('error', 'Er bestaat geen account met dat e-mailadres.');
             return res.redirect('/forgot');
           }
   
@@ -127,7 +127,7 @@ router.post('/forgot', function(req, res, next) {
         };
         smtpTransport.sendMail(mailOptions, function(err) {
           console.log('mail sent');
-          req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+          req.flash('success', 'Een e-mail is gestuurd naar ' + user.email + ' met verdere instructies.');
           done(err, 'done');
         });
       }
@@ -140,7 +140,7 @@ router.post('/forgot', function(req, res, next) {
 router.get('/reset/:token', function(req, res) {
     User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
       if (!user) {
-        req.flash('error', 'Password reset token is invalid or has expired.');
+        req.flash('error', 'Wachtwoord herstel token is ongeldig of is verlopen.');
         return res.redirect('/forgot');
       }
       res.render('reset', {token: req.params.token});
@@ -152,7 +152,7 @@ router.post('/reset/:token', function(req, res) {
       function(done) {
         User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
           if (!user) {
-            req.flash('error', 'Password reset token is invalid or has expired.');
+            req.flash('error', 'Wachtwoord herstel token is ongeldig of is verlopen.');
             return res.redirect('back');
           }
           if(req.body.password === req.body.confirm) {
@@ -167,7 +167,7 @@ router.post('/reset/:token', function(req, res) {
               });
             })
           } else {
-              req.flash("error", "Passwords do not match.");
+              req.flash("error", "Wachtwoorden zijn niet gelijk.");
               return res.redirect('back');
           }
         });
@@ -193,7 +193,7 @@ router.post('/reset/:token', function(req, res) {
             'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
         };
         smtpTransport.sendMail(mailOptions, function(err) {
-          req.flash('success', 'Success! Your password has been changed.');
+          req.flash('success', 'Succes! Uw wactwoord is gewijzigd.');
           done(err);
         });
       }
@@ -206,12 +206,12 @@ router.post('/reset/:token', function(req, res) {
 router.get('/users/:id', middleware.isLoggedIn, function(req, res) {
     User.findById(req.params.id, function(err, foundUser) {
         if(err) {
-            req.flash('error', 'User could not be found! ' + err);
+            req.flash('error', 'Gebruiker niet gevonden! ' + err);
             res.redirect('back');
         }
         Campground.find().where('author.id').equals(foundUser._id).exec(function(req, campgrounds) {
             if(err) {
-                req.flash('error', 'User data could not be found! ' + err);
+                req.flash('error', 'Gegevens van de gebuiker konden niet worden gevonden! ' + err);
                 res.redirect('back');
             }
             res.render('users/show', {user: foundUser, campgrounds: campgrounds});

@@ -97,7 +97,7 @@ router.post('/', middleware.isLoggedIn, upload.single('image'), function(req, re
             req.flash('error', err.message);
             return res.redirect('back');
           }
-          req.flash('success', 'Campground was added');
+          req.flash('success', 'Activiteit is toegevoegd');
           res.redirect('/campgrounds/' + campground.id);
         });
     });
@@ -114,7 +114,7 @@ router.get('/:id', function(req, res) {
     Campground.findById(req.params.id).populate('comments').exec(function(err, foundCampground) {
         if(err || !foundCampground) {
             //console.log(err);
-            req.flash('error', 'Campground not found');
+            req.flash('error', 'Activiteit niet gevonden');
             res.redirect('back');
         } else {
             console.log(foundCampground);
@@ -154,7 +154,7 @@ router.put('/:id', middleware.checkCampgroundOwnership, upload.single('image'), 
             campground.price = req.body.price;
             campground.desc = req.body.desc;
             campground.save();
-            req.flash('success', 'Successfully updated!');
+            req.flash('success', 'Succesvol bijgewerkt!');
             res.redirect('/campgrounds/' + campground._id);
         }
     });
@@ -171,7 +171,7 @@ router.delete('/:id', middleware.checkCampgroundOwnership, function(req, res) {
         } try {
             await cloudinary.v2.uploader.destroy(campground.imageId);
             campground.remove();
-            req.flash('success', 'Campground deleted successfully!');
+            req.flash('success', 'Activiteit succesvol verwijderd!');
             res.redirect('/campgrounds');
         } catch(err) {
             if(err) {
