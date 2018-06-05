@@ -156,12 +156,14 @@ button {
     }
 }
 
-@media (min-width: 320px) {
+@media (min-width: 200px) {
     h4.overview {
         margin-top: -20px !important;
     }
     .card-img-wrap {
         padding-bottom: 0 !important;
+        max-height: 250px;
+        overflow: hidden;
     }
     .card-body.custom {
         padding: 1.0rem;
@@ -169,13 +171,36 @@ button {
     }
 }
 
+@media (min-width: 320px) {
+    .card-img-wrap {
+        max-height: 300px;
+    }
+}
+
+@media (min-width: 375px) {
+    .card-img-wrap {
+        max-height: 250px;
+    }
+}
+
+@media (min-width: 450px) {
+    .card-img-wrap {
+        max-height: 300px;
+    }
+}
+
+@media (min-width: 520px) {
+    .card-img-wrap {
+        max-height: 350px;
+    }
+}
+
 @media (min-width: 576px) {
     .card-img-wrap {
         max-height: 158px;
-        overflow: hidden;
     }
     h4.overview {
-        margin-top: -10px !important;
+        margin-top: -15px !important;
     }
     .card-img-wrap {
         padding-bottom: inherit !important;
@@ -188,7 +213,6 @@ button {
 @media (min-width: 768px) {
     .card-img-wrap {
         max-height: 98px;
-        overflow: hidden;
     }
     h4.overview {
         margin-top: 0 !important;
@@ -198,7 +222,6 @@ button {
 @media (min-width: 992px) {
     .card-img-wrap {
         max-height: 138px;
-        overflow: hidden;
     }
     h4.overview {
         margin-top: -7px !important;
@@ -208,7 +231,6 @@ button {
 @media (min-width: 1200px) {
     .card-img-wrap {
         max-height: 167px;
-        overflow: hidden;
     }
     h4.overview {
         margin-top: -14px !important;
