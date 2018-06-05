@@ -75,9 +75,9 @@
                                     <img class="card-img-top" src="<%= campground.image %>">
                                 </div>
                                 <% if(campground.comments == '') { %>
-                                <p class="float-left px-3 mb-0 mt-1"><span class="badge badge-danger"><%= campground.comments.length %></span></p>
+                                <p class="float-left px-3 my-2"><span class="badge badge-danger"><%= campground.comments.length %></span></p>
                                 <% } else { %>
-                                <p class="float-left px-3 mb-0 mt-1"><span class="badge badge-danger"><%= campground.comments.length %></span></p>
+                                <p class="float-left px-3 my-2"><span class="badge badge-danger"><%= campground.comments.length %></span></p>
                                 <% } %>
                             </div>
                             <div class="col-md-6 text-left">
@@ -93,7 +93,7 @@
                                         </p>
                                     </div>
                                     <p class="mb-0">
-                                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary mt-2">Meer info</a>
+                                        <a href="/campgrounds/<%= campground._id %>" class="btn btn-primary mt-3">Meer info</a>
                                     </p>
                                 </div>
                             </div>
