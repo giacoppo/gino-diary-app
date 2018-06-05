@@ -13,7 +13,7 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12 mb-2">
                 <h1><%= user.firstName + ' ' + user.lastName %></h1>
             </div>
         </div>
@@ -26,10 +26,10 @@
                 </p>
             </div>
             <div class="col-md-8">
-                <h3>Bijdragen van <%= user.username %></h3>
+                <h3 class="text-primary pb-2">Bijdragen van <%= user.username %></h3>
                 <ul class="list-unstyled">
                     <% campgrounds.forEach(function(campground) { %>
-                        <li class="card p-2 mb-2">
+                        <li class="card p-3 mb-2">
                             <h4><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></h4>
                             <div class="row">
                                 <div class="col-md-5">

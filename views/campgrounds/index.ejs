@@ -74,8 +74,8 @@
                                 <div class="card-img-wrap p-3">
                                     <img class="card-img-top" src="<%= campground.image %>">
                                 </div>
-                                <% if(campground.comments == '') { %>
-                                <p class="float-left px-3 my-2"><span class="badge badge-danger"><%= campground.comments.length %></span></p>
+                                <% if(campground.comment == '') { %>
+                                <p class="float-left px-3 my-2"><span class="badge badge-danger">0</span></p>
                                 <% } else { %>
                                 <p class="float-left px-3 my-2"><span class="badge badge-danger"><%= campground.comments.length %></span></p>
                                 <% } %>
