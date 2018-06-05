@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+
+<main role="main">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h1 class="text-center">Login</h1>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <form action="/login" method="post">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="username" placeholder="gebruikersnaam" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="wachtwoord">
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-lg btn-primary btn-block">Login</button>
+                    </div>
+                </form>
+                <a class="float-left" href="/campgrounds">< Ga terug</a>
+                <a class="float-right" href="/forgot">Wachtwoord vergeten?</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ./partials/footer %>

@@ -1,0 +1,56 @@
+<% include ./partials/header %>
+
+<main role="main">
+    <div class="container mb-4">
+        <div class="row mb-3">
+            <div class="col-12 text-center">
+                <h1>Registreer</h1>
+                <p><span class="required">*</span> Verplichte velden</p>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-sm-12 col-md-8 col-lg-6">
+                <form action="/register" method="POST">
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="username" placeholder="gebruikersnaam" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="password" name="password" placeholder="wachtwoord">
+                    </div>
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="firstName" placeholder="voornaam">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="lastName" placeholder="achternaam">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="email" name="email" placeholder="email: john@doe.com">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="avatar" placeholder="url van profielfoto" value="/img/profile.png">
+                    </div>
+                    <div class="form-group">
+                        <!-- <input class="form-control" type="text" name="desc" placeholder="your profile description"> -->
+                        <textarea class="form-control" name="desc" cols="30" rows="10" placeholder="profiel beschrijving"></textarea>
+                    </div>
+
+                    <label for="userCode">Vul de User Code in die naar u toe is gemailed <span class="required">*</span></label>
+                    <div class="form-group">
+                        <input class="form-control" id="userCode" type="text" name="userCode" placeholder="vul de User Code in">
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="adminCode" placeholder="om een admin te worden vult u hier de admin code in">
+                    </div>
+                       
+                    <div class="form-group">
+                        <button class="btn btn-success btn-block">Registreer</button>
+                    </div>
+                </form>
+                <a href="/campgrounds">< Ga terug</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<% include ./partials/footer %>

@@ -1,0 +1,85 @@
+<% include ../partials/header %>
+
+<main role="main" class="mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <a href="/campgrounds">< Ga terug</a>
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 mb-2">
+                <p class="lead">Gino's Dagboek</p>
+                <!-- <div class="list-group">
+                    <li class="list-group-item active">Info 1</li>
+                    <li class="list-group-item">Info 2</li>
+                    <li class="list-group-item">Info 3</li>
+                </div> -->
+            </div>
+            <div class="col-md-9">
+                <div class="card mt-2">
+                    <img class="card-img-top" src="<%= campground.image %>" class="mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title float-left"><a href=""><%= campground.name %></a></h4>
+                        <!-- <h4 class="card-text float-right text-muted mt-1"><small>$<%= campground.price %>/night</small></h4> -->
+                        <p class="card-text float-left"><%= campground.desc %></p>
+                        <p class="card-text author float-left">
+                            <small><em>Gepubliceerd door: <a href="/users/<%= campground.author.id %>"> <%= campground.author.username %></a>, <%= moment(campground.createdAt).locale('nl').format('D MMM YYYY, kk:mm') %></em></small>
+                        </p>
+                        <% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                        <a class="btn btn-sm btn-primary float-left" href="/campgrounds/<%= campground._id %>/edit">Wijzig</a>
+                        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+                            <button class="btn btn-sm btn-danger float-left ml-1">Verwijder</button>
+                        </form>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="card bg-light mt-3 mb-3">
+                    <% if(!currentUser) { %>
+                    <div class="card-header">
+                        <a class="btn btn-outline-primary float-left" href="/register">Registreer</a>
+                        <a class="btn btn-success float-right" href="/login">Login om te reageren</a>
+                    </div>
+                    <% } else { %>
+                    <div class="card-header">
+                        <a class="btn btn-success float-right" href="/campgrounds/<%= campground._id %>/comments/new">Voeg nieuwe reactie toe</a>
+                    </div>
+                    <% } %>
+                    <!-- <h5 class="card-title">Light card title</h5> -->
+                    <% campground.comments.forEach(function(comment) { %>
+                    <div class="card-body custom">
+                        <p class="mb-0">
+                            <strong><%= comment.author.username %></strong>
+                            <span class="float-right"><%= moment(campground.createdAt).locale('nl').format('D MMM YYYY, kk:mm') %></span>
+                        </p>
+                        <p class="mt-0"><%= comment.text %></p>
+                        <% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin) { %>
+                        <p>
+                            <a class="btn btn-sm btn-primary float-left" 
+                                href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">
+                                Wijzig
+                            </a>
+                            <form action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+                                <button class="btn btn-sm btn-danger float-left ml-1">Verwijder</button>
+                            </form>
+                        </p>
+                        <% } %>
+                    </div>
+                    <% }) %>
+                    <% if(campground.comments == '') { %>
+                        <div class="card-body">
+                            <p class="mb-0">Nog geen reacties!</p>
+                        </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>        
+    </div>
+</main>
+
+<% include ../partials/footer %>

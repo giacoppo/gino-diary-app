@@ -1,0 +1,29 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <h1 class="text-center mb-4">Wijzig reactie</h1>
+
+            <form action="/campgrounds/<%= campground_id %>/comments/<%= comment._id %>?_method=PUT" method="post">
+                <div class="form-group">
+                    <!-- <input class="form-control" type="text" name="comment[text]" placeholder="text"> -->
+                    <textarea class="form-control" name="comment[text]" cols="30" rows="10"><%= comment.text %></textarea>
+                </div>
+                <!-- <div class="form-group">
+                    <input class="form-control" type="text" name="comment[author]" placeholder="author">
+                </div> -->
+                <div class="form-group">
+                    <button class="btn btn-primary btn-lg btn-block">Opslaan!</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-8 offset-sm-2">
+            <a href="/campgrounds/<%= campground_id %>">< Ga terug</a>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

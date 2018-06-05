@@ -1,0 +1,50 @@
+<% include ../partials/header %>
+
+<main role="main" class="mb-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <p>
+                    <a href="/campgrounds">< Ga terug</a>
+                </p>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1><%= user.firstName + ' ' + user.lastName %></h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <img class="img-fluid rounded mt-2" src="<%= user.avatar %>" alt="user profile image">
+                <p><a href="mailto:<%= user.email %>"><%= user.email %></a></p>
+                <p class="lead">
+                    <%= user.desc %>
+                </p>
+            </div>
+            <div class="col-md-8">
+                <h3>Bijdragen van <%= user.username %></h3>
+                <ul class="list-unstyled">
+                    <% campgrounds.forEach(function(campground) { %>
+                        <li class="card p-2 mb-2">
+                            <h4><a href="/campgrounds/<%= campground.id %>"><%= campground.name %></a></h4>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <img class="img-fluid card-img mt-1" src="<%= campground.image %>" alt="campground image">
+                                </div>
+                                <div class="col-md-7">
+                                    <p><%= campground.desc %></p>
+                                </div>
+                            </div>
+                        </li>
+                    <% }) %>
+                </ul>
+            </div>
+        </div>        
+    </div>
+</main>
+
+<% include ../partials/footer %>

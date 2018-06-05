@@ -1,0 +1,193 @@
+@import '_bootstrap';
+
+html {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+    background-color: #f8f9fa;
+    position: relative;
+    margin: 0;
+    padding-bottom: 4rem;
+    min-height: 100%;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.alert-success {
+    background-color: #28a745;
+    color: white;
+}
+.alert-danger {
+    background-color: #dc3545;
+    color: white;
+}
+.close span {
+    line-height: 1.1rem;
+}
+
+.jumbotron {
+    background: #E55D87;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #5FC3E4, #E55D87);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #5FC3E4, #E55D87); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+h4.overview {
+    margin-top: -7px !important;
+}
+
+p.crop-text {
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+.bg-light {
+    background-color: #0080A4 !important;
+    a {
+        color: white !important;
+    }
+    li {
+        a {
+            color: white !important;
+            &:hover {
+                color: #ddd !important;
+            }
+        }
+        &.active {
+            a {
+                color: #ddd !important;
+            }
+        }
+    }
+}
+
+form {
+    textarea {
+        resize: none;
+    }
+}
+span.required {
+    color: red;
+}
+
+button {
+    &:focus {
+        outline: none;
+    }
+    &[aria-expanded=true] {
+        background-color: #364751;
+    }
+    &.navbar-toggler {
+        box-sizing: border-box;
+        border: 1px solid white !important;
+        background-color: white;
+        &:hover {
+            background-color: #364751;
+            border: 1px solid #364751 !important;
+            // background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+            }
+        }
+        &[aria-expanded=true] {
+            border: 1px solid #364751 !important;
+            background-color: #364751;
+            .navbar-toggler-icon {
+                background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255, 1.0)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+            }
+        }
+    }
+}
+
+.card {
+    .card-body {
+        p {
+            &.card-text {
+                width: 100%;
+                &.author {
+                    color: #007bff;
+                    a {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        &.custom {
+            padding-bottom: 0;
+            p {
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+            &:last-child {
+                padding-bottom: 1.25rem;
+            }
+        }
+    }
+    &.card.bg-light {
+        background-color: white !important;
+    }
+}
+
+@media (min-width: 320px) {
+    h4.overview {
+        margin-top: -20px !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .card-img-wrap {
+        max-height: 158px;
+        overflow: hidden;
+    }
+    h4.overview {
+        margin-top: -20px !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .card-img-wrap {
+        max-height: 98px;
+        overflow: hidden;
+    }
+    h4.overview {
+        margin-top: 0 !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .card-img-wrap {
+        max-height: 138px;
+        overflow: hidden;
+    }
+    h4.overview {
+        margin-top: -7px !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card-img-wrap {
+        max-height: 167px;
+        overflow: hidden;
+    }
+    h4.overview {
+        margin-top: -14px !important;
+    }
+}

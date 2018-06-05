@@ -1,0 +1,16 @@
+// Bootstrap overrides
+//
+// Copy variables from _variables.scss to this file to override default values
+// without modifying source files.
+
+// $body-bg: #FAF4FF;
+
+// $navbar-light-color: #FAF4FF;
+
+$theme-colors: ();
+$theme-colors: map-merge((
+//   "primary":    #FF4643,
+  "success":    #364751
+), $theme-colors);
+
+// $jumbotron-bg: #C3D0DE;
