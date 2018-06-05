@@ -58,6 +58,16 @@ p.crop-text {
     -webkit-box-orient: vertical;
 }
 
+input.reset {
+    background: none;
+    background-color: white;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    &:hover {
+        color: #ccc;
+    }
+}
+
 .bg-light {
     background-color: #0080A4 !important;
     a {

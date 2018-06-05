@@ -34,6 +34,7 @@
                     <div class="input-group">
                         <input class="form-control" type="text" name="search" placeholder="Zoek naar een activiteit...">
                         <div class="input-group-append">
+                            <input class="reset btn btn-default" type="submit" value="X">
                             <input class="btn btn-success" type="submit" value="Zoek">
                         </div>
                     </div>
@@ -76,11 +77,12 @@
                             </div>
                             <div class="col-md-6 text-left">
                                 <div class="card-body p-xs-4 p-sm-3 p-md-2 pb-md-3 p-lg-3 p-xl-4">
-                                    <h4 class="mt-0 overview"><%= campground.name %></h4>
-                                    <p class="mb-1">
-                                        <small class="text-secondary"><%= moment(campground.createdAt).locale('nl').format('D MMM YYYY') %></small>
+                                    <h4 class="mt-0 mb-1 overview"><%= campground.name %></h4>
+                                    <p class="mb-1">Door: <%= campground.author.username %></p>
+                                    <p class="mb-2">
+                                        <small class="text-secondary mb-2"><%= moment(campground.createdAt).locale('nl').format('D MMM YYYY') %></small>
                                     </p>
-                                    <div class="truncate">
+                                    <div class="truncate float-left">
                                         <p class="crop-text">
                                             <%= campground.desc %>
                                         </p>
