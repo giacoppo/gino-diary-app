@@ -6406,7 +6406,7 @@ button.navbar-toggler {
     max-height: 158px;
     overflow: hidden; }
   h4.overview {
-    margin-top: -20px !important; } }
+    margin-top: -10px !important; } }
 
 @media (min-width: 768px) {
   .card-img-wrap {
