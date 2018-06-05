@@ -41,7 +41,7 @@ router.get('/', function(req, res) {
                     res.redirect("back");
                 } else {
                     if(allCampgrounds.length < 1) {
-                        noMatch = 'No campgrounds match that query, please try again.';
+                        noMatch = 'Deze zoekopdracht heeft geen resultaten gegeven, probeer het opnieuw.';
                     }
                     res.render('campgrounds/index', {
                         campgrounds:allCampgrounds,
