@@ -95,7 +95,7 @@ router.post('/forgot', function(req, res, next) {
           }
   
           user.resetPasswordToken = token;
-          user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+          user.resetPasswordExpires = Date.now() + 86400000; // 24 hour
   
           user.save(function(err) {
             done(err, token, user);
@@ -108,7 +108,6 @@ router.post('/forgot', function(req, res, next) {
           secure: false,
           auth: {
             user: 'giacoppo.node@gmail.com',
-            //pass: yelpcamp68
             pass: process.env.GMAILPW
           },
           tls: {
@@ -123,7 +122,7 @@ router.post('/forgot', function(req, res, next) {
             'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
             'http://' + req.headers.host + '/reset/' + token + '\n\n' +
             'If you did not request this, please ignore this email and your password will remain unchanged.\n\n' +
-            'This reset will be available for one hour.\n'
+            'This reset will be available for 24 hours.\n'
         };
         smtpTransport.sendMail(mailOptions, function(err) {
           console.log('mail sent');
