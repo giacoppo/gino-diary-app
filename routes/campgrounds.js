@@ -15,7 +15,7 @@ var imageFilter = function (req, file, cb) {
     }
     cb(null, true);
 };
-var upload = multer({ storage: storage, limits:{fileSize:6144}, fileFilter: imageFilter})
+var upload = multer({ storage: storage, fileFilter: imageFilter})
 
 var cloudinary = require('cloudinary');
 cloudinary.config({ 
@@ -79,7 +79,7 @@ router.get('/', function(req, res) {
 router.post('/', middleware.isLoggedIn, upload.single('image'), function(req, res) {
     cloudinary.v2.uploader.upload(req.file.path, function(err, result) {
         if(err) {
-            req.flash('error', err.message);
+            re.flash('error', err.message);
             return res.redirect('back');
         }
         // add cloudinary url for the image to the campground object under image property
